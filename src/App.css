@@ -1,0 +1,50 @@
+.App {
+  background-color: #488B49;
+  height:100vh;
+  padding: 3em;
+}
+
+.header-detail {
+  text-align: center;
+  font-weight: bold;
+}
+
+#restaurant-feed {
+  overflow-y: scroll;
+  height: 24em
+}
+.field {
+  margin: 0 1em !important;
+}
+
+#margin{
+  margin: 0 2em 1em 0;
+}
+
+#form-field {
+  margin-right: 1em;
+}
+
+.main-grid {
+  background-color: white;
+  border-radius: .2em;
+  margin: 1em 1em;
+  padding: 1em;
+  display:grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows:28em;
+  overflow: hidden
+}
+
+.flex {
+  display:flex;
+  justify-content: flex-start;
+  margin: 1em 0;
+}
+
+h1 {
+  font-family: 'Creepster', cursive;
+  text-align: center;
+  text-shadow: 2px 2px white;
+  font-size: 3em;
+}
