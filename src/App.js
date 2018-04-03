@@ -17,7 +17,12 @@ class App extends Component {
     // const URL = `http://localhost:3000/worst-restaurants?zipcode=${zipcode}`
     fetch(URL).then(res => res.json()).then(inspections => {
       let firstRestaurant = inspections[0].restaurant
-      let zipcodeLngLat = {lat: parseFloat(firstRestaurant.lat), lng: parseFloat(firstRestaurant.long) }
+      let zipcodeLngLat;
+      if (firstRestaurant.lat === null) {
+        zipcodeLngLat = { lat: 40.7128, lng: -74.0060 }
+      } else {
+        zipcodeLngLat = {lat: parseFloat(firstRestaurant.lat), lng: parseFloat(firstRestaurant.long) }
+      }
       const newRestaurants = inspections.map( i => {
         return Object.assign(i.restaurant, {score: i.score})
       })
