@@ -15,6 +15,7 @@ class RestaurantsMap extends React.Component {
           restaurants= {this.props.restaurants}
           infoWindowOpen= {this.props.infoWindowOpen}
           openInfoWindow= {this.props.openInfoWindow}
+          currentZipcode={this.props.currentZipcode}
         />
       </div>
     )

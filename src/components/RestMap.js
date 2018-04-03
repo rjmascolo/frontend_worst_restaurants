@@ -17,7 +17,7 @@ const RestMap = compose(
   <div>
     <GoogleMap
       defaultZoom={12}
-      defaultCenter={{ lat: 40.7128, lng: -74.0060 }}
+      center={props.currentZipcode}
     >
       {
         props.restaurants.length > 0 ? props.restaurants.map( (res,i) => {

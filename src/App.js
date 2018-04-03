@@ -8,18 +8,23 @@ class App extends Component {
 
   state = {
     restaurants: [],
-    infoWindowOpen: ''
+    infoWindowOpen: '',
+    currentZipcode: { lat: 40.7128, lng: -74.0060 }
   }
 
   enterZipcode = (zipcode) => {
     const URL = `https://backend-worst-restaurants.herokuapp.com/worst-restaurants?zipcode=${zipcode}`
     // const URL = `http://localhost:3000/worst-restaurants?zipcode=${zipcode}`
     fetch(URL).then(res => res.json()).then(inspections => {
+      let firstRestaurant = inspections[0].restaurant
+      let zipcodeLngLat = {lat: parseFloat(firstRestaurant.lat), lng: parseFloat(firstRestaurant.long) }
       const newRestaurants = inspections.map( i => {
         return Object.assign(i.restaurant, {score: i.score})
       })
-
-      this.setState({restaurants: newRestaurants})
+      this.setState({
+        restaurants: newRestaurants,
+        currentZipcode: zipcodeLngLat
+      })
     })
   }
 
@@ -42,6 +47,7 @@ class App extends Component {
               restaurants={this.state.restaurants}
               infoWindowOpen = {this.state.infoWindowOpen}
               openInfoWindow= {this.openInfoWindow}
+              currentZipcode={this.state.currentZipcode}
              />
           </div>
         </div>
